@@ -61,7 +61,7 @@ module.exports = {
     getMessage: (req,res)=> {
         return messageModule
             .getMessage(req.body.UID)
-
+            
             .then((data) => {
                 console.log(data)
                 return res.send({ status:"ok", message: data});
