@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 
 const messageSchema = mongoose.Schema({
     UID: String,
-    message: String
-})
+    message: String,
+},
+    { timestamps: true } 
+)
 
 const messageCollection = mongoose.model('messages',messageSchema);
 
