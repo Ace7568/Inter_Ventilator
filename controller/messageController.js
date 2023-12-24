@@ -7,6 +7,7 @@ module.exports = {
         messageModule.messageCollection.find({ UID: UID})
         .then((data) => {
             if (data.length == 0){
+                console.log(req.body)
                 return messageModule
                 .create(req.body)
 
@@ -24,6 +25,7 @@ module.exports = {
             }
             else if(data.length == 1){
                 // return res.send({status: "fail - user already exist"});
+                console.log(req.body)
                 const fields = {
                     message : req.body.message
                 }
@@ -45,6 +47,7 @@ module.exports = {
     },
 
     getAll: (req, res)=>{
+        console.log(req.body)
         return messageModule
             .getALL()
 
