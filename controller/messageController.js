@@ -22,8 +22,24 @@ module.exports = {
                     return res.send({ status : "fail to create user", error: err });
                 });
             }
-            else
-                return res.send({status: "fail - user already exist"});
+            else if(data.length == 1){
+                // return res.send({status: "fail - user already exist"});
+                const fields = {
+                    message : req.body.message
+                }
+        
+                return messageModule
+                    .updateMessage(req.body.UID, fields)
+        
+                    .then((data) => {
+                        return res.send({ status: "updated", updatedmessage : data});
+                    })
+        
+                    .catch((err) =>{
+                        return res.send({ status:"fail to update", error: err});
+                    })
+            }
+                
         })
 
     },
@@ -42,6 +58,9 @@ module.exports = {
     },
 
     updateMessage: (req, res) => {
+
+        console.log(req.body)
+        
         const fields = {
             message : req.body.message
         }
