@@ -22,4 +22,4 @@ app.use('/health',(req, res) => {
     res.send({ status: "OK"})
 })
 
-app.listen(port,() => console.log("service started on port: ", port));
+app.listen(port,() => console.log("service started on port: ", process.env.PORT || port));
