@@ -86,7 +86,10 @@ module.exports = {
             
             .then((data) => {
                 console.log(data)
-                return res.send({ status:"ok", response: data});
+                if(data == null){
+                    return res.send({ status:"Not found", response: Date()})
+                }
+                else return res.send({ status:"ok", response: data});
             })
 
             .catch((err) => {
