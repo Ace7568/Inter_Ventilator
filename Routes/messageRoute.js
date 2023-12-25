@@ -7,6 +7,6 @@ const messageContoller = require('../controller/messageController');
 routes.post('/create', messageContoller.create);
 routes.get('/getall', messageContoller.getAll);
 routes.post('/getone', messageContoller.getMessage);
-routes.post('/updatemessage', messageContoller.updateMessage);
+// routes.post('/updatemessage', messageContoller.updateMessage);
 
 module.exports = routes;

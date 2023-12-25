@@ -27,7 +27,7 @@ module.exports = {
                 // return res.send({status: "fail - user already exist"});
                 console.log(req.body)
                 const fields = {
-                    message : req.body.message
+                    content : req.body.content
                 }
         
                 return messageModule
@@ -86,7 +86,7 @@ module.exports = {
             
             .then((data) => {
                 console.log(data)
-                return res.send({ status:"ok", message: data});
+                return res.send({ status:"ok", response: data});
             })
 
             .catch((err) => {

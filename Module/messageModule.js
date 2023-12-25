@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 
 const messageSchema = mongoose.Schema({
     UID: String,
-    message: String,
+    content: {
+        VT: Number,
+        L1: String,
+        META: Array
+    }
 },
     { timestamps: true } 
 )
