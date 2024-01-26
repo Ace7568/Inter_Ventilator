@@ -13,11 +13,11 @@ module.exports = {
                 .create(req.body)
 
                 .then((data) => {
-                    logger.messageLogger.log('info','user created succefully - ' + data.UID)
+                    // logger.messageLogger.log('info','user created succefully - ' + data.UID)
                     return res.send({
                         status: "ok",
-                        msg: "User is created",
-                        data : data
+                        // msg: "User is created",
+                        // data : data
                     });
                 })
 
@@ -28,8 +28,8 @@ module.exports = {
             }
             else if(data.length == 1){
                 // return res.send({status: "fail - user already exist"});
-                logger.messageLogger.log('debug','Update user invoked')
-                console.log(req.body)
+                // logger.messageLogger.log('debug','Update user invoked')
+                // console.log(req.body)
                 const fields = {
                     content : req.body.content
                 }
@@ -38,8 +38,8 @@ module.exports = {
                     .updateMessage(req.body.UID, fields)
         
                     .then((data) => {
-                        logger.messageLogger.log('info','User updated succesfully - ' + data);
-                        return res.send({ status: "updated", updatedmessage : data});
+                        // logger.messageLogger.log('info','User updated succesfully - ' + data);
+                        return res.send({ status: "updated" });
                     })
         
                     .catch((err) =>{
@@ -53,7 +53,7 @@ module.exports = {
     },
 
     getAll: (req, res)=>{
-        console.log(req.body)
+        // console.log(req.body)
         return messageModule
             .getALL()
 
@@ -97,7 +97,7 @@ module.exports = {
                     return res.send({ status:"Not found", response: Date()})
                 }
                 else{
-                    logger.messageLogger.log('info','UID found - ' + req.body.UID)
+                    // logger.messageLogger.log('info','UID found - ' + req.body.UID)
                     return res.send({ status:"ok", response: data});
                 } 
             })
